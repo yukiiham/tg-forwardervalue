@@ -1,1 +1,1 @@
-web: sh -c 'export STREAMLIT_SERVER_PORT=${PORT:-8080} && exec streamlit run forwarder/app.py --server.port=${PORT:-8080} --server.address=0.0.0.0 --server.headless=true'
+web: sh -c 'unset STREAMLIT_SERVER_PORT && export STREAMLIT_SERVER_PORT=${PORT:-8080} && exec streamlit run forwarder/app.py --server.port=${PORT:-8080} --server.address=0.0.0.0 --server.headless=true'
