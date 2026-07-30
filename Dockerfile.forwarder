@@ -11,4 +11,4 @@ COPY forwarder ./forwarder
 ENV PYTHONUNBUFFERED=1 \
     FORWARDER_DATA_DIR=/data
 
-CMD ["sh", "-c", "streamlit run app.py --server.address=0.0.0.0 --server.port=$PORT"]
+CMD ["sh", "-c", "export STREAMLIT_SERVER_PORT=${PORT:-8080} && exec streamlit run forwarder/app.py --server.address=0.0.0.0 --server.port=${PORT:-8080}"]
